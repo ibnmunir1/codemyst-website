@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEMYST - Empowering Minds with Code & Creativity</title>
+    
+    <!-- 1. Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Google Font (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- 3. Lucide Icons -->
+    <script src="https://unpkg.com/lucide-icons"></script>
+
+    <!-- 4. Custom Tailwind Configuration & Base Styles -->
+    <style type="text/tailwindcss">
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+
+        /* Base styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300;
+        }
+
+        /* Gradient text for logo and headings */
+        .gradient-text {
+            @apply bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-400 bg-clip-text text-transparent;
+        }
+
+        /* Active nav link style */
+        .nav-link.active {
+            @apply text-blue-600 dark:text-blue-400 font-semibold;
+        }
+        
+        /* Page transition class */
+        .page-section {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Timeline styles for Future page */
+        .timeline-item {
+            @apply relative pl-8 pb-8;
+        }
+        .timeline-item::before {
+            content: '';
+            @apply absolute left-3 top-1 w-0.5 h-full bg-slate-300 dark:bg-slate-700;
+        }
+        .timeline-item:last-child::before {
+            @apply h-0;
+        }
+        .timeline-dot {
+            @apply absolute left-0 top-1 w-6 h-6 rounded-full bg-blue-600 border-4 border-white dark:border-slate-900 flex items-center justify-center;
+        }
+        .timeline-dot-inner {
+            @apply w-2 h-2 rounded-full bg-white;
+        }
+    </style>
+    
+    <script>
+        // Custom Tailwind config
+        tailwind.config = {
+            darkMode: 'class', // Enable 'class' strategy for dark mode
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'dark-bg': '#0F172A',
+                        'dark-card': '#1E293B',
+                    }
+                },
+            },
+        };
+    </script>
+</head>
+<body class="antialiased">
+
+    <!-- ===== HEADER & NAVIGATION ===== -->
+    <header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0 flex items-center nav-link" data-page="home">
+                    <span class="text-3xl font-extrabold gradient-text">CODEMYST</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex md:items-center md:space-x-6">
+                    <a href="#" class="nav-link text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium" data-page="home">Home</a>
+                    <a href="#" class="nav-link text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium" data-page="tips">Tips & Tricks</a>
+
+<a href="#" class="nav-link text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium" data-page="projects">Projects</a>
+                    <a href="#" class="nav-link text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium" data-page="notes">Notes</a>
+                    <a href="#" class="nav-link text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium" data-page="resources">Resources</a>
+                    <a href="#" class="nav-link text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium" data-page="future">Future Plans</a>
+                    <a href="#" class="nav-link text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium" data-page="contact">Contact</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="sun" class="h-5 w-5 hidden dark:block"></i>
+                        <i data-lucide="moon" class="h-5 w-5 block dark:hidden"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button id="theme-toggle-mobile" class="p-2 mr-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="sun" class="h-5 w-5 hidden dark:block"></i>
+                        <i data-lucide="moon" class="h-5 w-5 block dark:hidden"></i>
+                    </button>
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i data-lucide="menu" class="h-6 w-6" id="menu-icon-open"></i>
+                        <i data-lucide="x" class="h-6 w-6 hidden" id="menu-icon-close"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#" class="nav-link block text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium" data-page="home">Home</a>
+                <a href="#" class="nav-link block text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium" data-page="tips">Tips & Tricks</a>
+                <a href="#" class="nav-link block text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium" data-page="projects">Projects</a>
+                <a href="#" class="nav-link block text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium" data-page="notes">Notes</a>
+                <a href="#" class="nav-link block text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium" data-page="resources">Resources</a>
+                <a href="#" class="nav-link block text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium" data-page="future">Future Plans</a>
+                <a href="#" class="nav-link block text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 px-3 py-2 rounded-md text-base font-medium" data-page="contact">Contact</a>
+            </div>
+        </div>
+    </header>
+
+
+<!-- ===== MAIN CONTENT ===== -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 min-h-[calc(100vh-200px)]">
+
+        <!-- ===== 1. HOME PAGE ===== -->
+        <section id="page-home" class="page-section">
+            <div class="flex flex-col items-center justify-center text-center min-h-[70vh]">
+                <h1 class="text-6xl md:text-8xl font-extrabold gradient-text">
+                    CODEMYST
+                </h1>
+                <p class="mt-4 text-2xl md:text-3xl font-semibold text-slate-700 dark:text-slate-300">
+                    Empowering Minds with Code & Creativity.
+                </p>
+                <p class="mt-6 max-w-2xl text-lg text-slate-600 dark:text-slate-400">
+                    Welcome to CODEMYST, your central hub for modern tech-learning. We provide high-quality tutorials, practical tips, real-world projects, and comprehensive notes on coding, AI, and all things technology to help you grow your skills and build your future.
+                </p>
+                <div class="mt-10 flex space-x-6">
+                    <a href="#" title="Facebook" class="text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        <i data-lucide="facebook" class="h-8 w-8"></i>
+                    </a>
+                    <a href="#" title="Telegram" class="text-slate-500 hover:text-sky-500 dark:hover:text-sky-400 transition-colors">
+                        <i data-lucide="send" class="h-8 w-8"></i>
+                    </a>
+                    <a href="mailto:contact@codemyst.com" title="Email" class="text-slate-500 hover:text-red-500 dark:hover:text-red-400 transition-colors">
+                        <i data-lucide="mail" class="h-8 w-8"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 2. TIPS & TRICKS PAGE ===== -->
+        <section id="page-tips" class="page-section hidden">
+            <h2 class="text-4xl font-bold text-center mb-10 gradient-text">Tech Tips & Tricks</h2>
+            
+            <!-- Filters -->
+            <div id="tips-filters" class="flex flex-wrap justify-center gap-2 mb-8">
+                <button class="tip-filter-btn active-filter bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium" data-category="all">All</button>
+                <button class="tip-filter-btn bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-100 dark:hover:bg-slate-700 px-4 py-2 rounded-full text-sm font-medium" data-category="web">Web Dev</button>
+                <button class="tip-filter-btn bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-100 dark:hover:bg-slate-700 px-4 py-2 rounded-full text-sm font-medium" data-category="python">Python</button>
+                <button class="tip-filter-btn bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-100 dark:hover:bg-slate-700 px-4 py-2 rounded-full text-sm font-medium" data-category="ai">AI</button>
+                <button class="tip-filter-btn bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-blue-100 dark:hover:bg-slate-700 px-4 py-2 rounded-full text-sm font-medium" data-category="css">CSS</button>
+            </div>
+
+            <!-- Grid -->
+            <div id="tips-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Tip Card 1 -->
+                <div class="tip-card bg-white dark:bg-dark-card shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl" data-category="web">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold uppercase text-blue-500">Web Dev</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2">Mastering Flexbox for Responsive Layouts</h3>
+
+
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Learn the fundamentals of Flexbox and how to create complex, responsive layouts with just a few lines of CSS.</p>
+                        <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">Read More &rarr;</a>
+                    </div>
+                </div>
+                <!-- Tip Card 2 -->
+                <div class="tip-card bg-white dark:bg-dark-card shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl" data-category="python">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold uppercase text-green-500">Python</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2">5 Useful Python List Comprehensions</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Speed up your Python code and make it more readable with these powerful one-liners for list manipulation.</p>
+                        <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">Read More &rarr;</a>
+                    </div>
+                </div>
+                <!-- Tip Card 3 -->
+                <div class="tip-card bg-white dark:bg-dark-card shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl" data-category="ai">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold uppercase text-purple-500">AI</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2">What is a Neural Network? A Simple Guide</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Demystifying the core concept behind modern AI. Understand how neural networks learn from data in plain English.</p>
+                        <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">Read More &rarr;</a>
+                    </div>
+                </div>
+                <!-- Tip Card 4 -->
+                <div class="tip-card bg-white dark:bg-dark-card shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl" data-category="css">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold uppercase text-pink-500">CSS</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2">The 'backdrop-filter' CSS Property</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Create stunning "glassmorphism" effects for your modals and navbars using this powerful CSS feature.</p>
+                        <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">Read More &rarr;</a>
+                    </div>
+                </div>
+                <!-- Tip Card 5 -->
+                <div class="tip-card bg-white dark:bg-dark-card shadow-lg rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl" data-category="web">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold uppercase text-blue-500">Web Dev</span>
+                        <h3 class="text-xl font-bold mt-2 mb-2">Async/Await vs. Promises in JavaScript</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">A clear comparison of anp-to-date asynchronous JavaScript, with practical examples for each.</p>
+                        <a href="#" class="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">Read More &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== 3. PROJECTS PAGE ===== -->
+        <section id="page-projects" class="page-section hidden">
+
+<h2 class="text-4xl font-bold text-center mb-10 gradient-text">Our Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project Card 1 -->
+                <div class="bg-white dark:bg-dark-card shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/4F46E5/FFFFFF?text=Project+Screenshot" alt="Project Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">AI Chatbot</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">A fully functional, AI-powered chatbot built with Python and TensorFlow, capable of natural language understanding.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                                <i data-lucide="github" class="h-4 w-4 mr-1"></i>
+                                GitHub
+                            </a>
+                            <a href="#" class="flex items-center text-sm font-medium text-slate-600 dark:text-slate-300 hover:underline">
+                                <i data-lucide="external-link" class="h-4 w-4 mr-1"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-white dark:bg-dark-card shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/8A2BE2/FFFFFF?text=Project+Screenshot" alt="Project Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">E-Commerce Dashboard</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">A responsive admin dashboard for an e-commerce platform, built with React and Tailwind CSS, featuring charts and data tables.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                                <i data-lucide="github" class="h-4 w-4 mr-1"></i>
+                                GitHub
+                            </a>
+                            <a href="#" class="flex items-center text-sm font-medium text-slate-600 dark:text-slate-300 hover:underline">
+                                <i data-lucide="external-link" class="h-4 w-4 mr-1"></i>
+                                Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-white dark:bg-dark-card shadow-lg rounded-xl overflow-hidden transform transition-all duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Project+Screenshot" alt="Project Screenshot" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-2">Markdown Note Taker</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">A desktop application built with Electron.js that allows users to write and preview Markdown notes in real-time.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                                <i data-lucide="github" class="h-4 w-4 mr-1"></i>
+                                GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+</div>
+        </section>
+
+        <!-- ===== 4. NOTES SECTION (PDF Viewer) ===== -->
+        <section id="page-notes" class="page-section hidden">
+            <h2 cl

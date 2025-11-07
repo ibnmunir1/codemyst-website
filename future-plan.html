@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CODEMYST - Future Plans</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide-icons"></script>
+
+  <style type="text/tailwindcss">
+    body {
+      font-family: 'Inter', sans-serif;
+      @apply bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300;
+    }
+
+    .gradient-text {
+      @apply bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-400 bg-clip-text text-transparent;
+    }
+
+    /* Timeline styles */
+    .timeline-item {
+      @apply relative pl-8 pb-8;
+    }
+    .timeline-item::before {
+      content: '';
+      @apply absolute left-3 top-1 w-0.5 h-full bg-slate-300 dark:bg-slate-700;
+    }
+    .timeline-item:last-child::before {
+      @apply h-0;
+    }
+    .timeline-dot {
+      @apply absolute left-0 top-1 w-6 h-6 rounded-full bg-blue-600 border-4 border-white dark:border-slate-900 flex items-center justify-center;
+    }
+    .timeline-dot-inner {
+      @apply w-2 h-2 rounded-full bg-white;
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'dark-bg': '#0F172A',
+            'dark-card': '#1E293B',
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body class="antialiased">
+
+  <!-- ===== HEADER ===== -->
+  <header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+      <a href="index.html" class="flex items-center">
+        <span class="text-3xl font-extrabold gradient-text">CODEMYST</span>
+      </a>
+      <button id="theme-toggle" class="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <i data-lucide="sun" class="h-5 w-5 hidden dark:block"></i>
+        <i data-lucide="moon" class="h-5 w-5 block dark:hidden"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== FUTURE PLANS SECTION ===== -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h1 class="text-4xl md:text-5xl font-extrabold gradient-text text-center mb-12">Future Plans</h1>
+
+    <div class="relative">
+      <!-- Plan 1 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="ml-8">
+          <h3 class="text-xl font-semibold text-blue-600 dark:text-blue-400">2025 — Launch Advanced Hacking Book</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">
+            Publish an in-depth hacking guide based on Codemyst's Telegram series — focusing on real-world advanced cybersecurity techniques.
+          </p>
+        </div>
+      </div>
+
+      <!-- Plan 2 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="ml-8">
+          <h3 class="text-xl font-semibold text-purple-600 dark:text-purple-400">2026 — Codemyst Academy</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">
+            Launch a digital learning platform offering practical coding lessons, cybersecurity simulations, and mentorship for students.
+          </p>
+        </div>
+      </div>
+
+      <!-- Plan 3 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="ml-8">
+          <h3 class="text-xl font-semibold text-green-600 dark:text-green-400">2027 — AI & Cyber Defense Lab</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">
+            Build an AI-driven cybersecurity lab for research and testing defense mechanisms against modern cyber threats.
+          </p>
+        </div>
+      </div>
+
+      <!-- Plan 4 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+        <div class="ml-8">
+          <h3 class="text-xl font-semibold text-indigo-600 dark:text-indigo-400">2028 — Open Source Security Tools</h3>
+          <p class="mt-2 text-slate-600 dark:text-slate-400">
+            Release a suite of open-source tools for ethical hackers and developers to detect and prevent vulnerabilities.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center mt-10 text-sm text-slate-500 dark:text-slate-400">
+      ✨ To add or remove a plan, simply duplicate or delete a <code>&lt;div class="timeline-item"&gt;</code> block.
+    </p>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="py-6 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-500 dark:text-slate-400">
+    © 2025 CODEMYST — Empowering Minds with Code & Creativity
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Dark mode toggle
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>

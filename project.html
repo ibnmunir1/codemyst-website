@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - CODEMYST</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide-icons"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 transition-colors duration-300">
+
+  <!-- ===== HEADER ===== -->
+  <header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href="index.html" class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-400 bg-clip-text text-transparent">CODEMYST</a>
+
+      <!-- Navigation -->
+      <div class="space-x-4 hidden md:flex">
+        <a href="index.html" class="hover:text-blue-600">Home</a>
+        <a href="tips.html" class="hover:text-blue-600">Tips</a>
+        <a href="projects.html" class="text-blue-600 font-semibold">Projects</a>
+        <a href="notes.html" class="hover:text-blue-600">Notes</a>
+        <a href="resources.html" class="hover:text-blue-600">Resources</a>
+        <a href="future.html" class="hover:text-blue-600">Future</a>
+        <a href="contact.html" class="hover:text-blue-600">Contact</a>
+      </div>
+
+      <!-- Dark Mode Toggle -->
+      <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800">
+        <i data-lucide="moon" class="h-5 w-5 dark:hidden"></i>
+        <i data-lucide="sun" class="h-5 w-5 hidden dark:block"></i>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold text-center mb-10 bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-400 bg-clip-text text-transparent">
+      My Projects
+    </h1>
+
+    <!-- Info -->
+    <div class="text-center text-slate-600 dark:text-slate-400 mb-8">
+      <p>Here you can showcase your projects — web apps, tools, scripts, or designs.</p>
+      <p class="text-sm mt-2">💡 To add or remove a project, simply copy or delete a “project card” from the grid below.</p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Project Card 1 -->
+      <div class="bg-white dark:bg-slate-800 shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+        <img src="https://placehold.co/600x400/4F46E5/FFFFFF?text=Project+1" alt="Project Screenshot" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-2">AI Chatbot</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+            A Python-based AI chatbot using TensorFlow and NLP to simulate conversations.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">
+              <i data-lucide="github" class="h-4 w-4 mr-1"></i> GitHub
+            </a>
+            <a href="#" class="flex items-center text-sm font-medium text-slate-600 dark:text-slate-300 hover:underline">
+              <i data-lucide="external-link" class="h-4 w-4 mr-1"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div class="bg-white dark:bg-slate-800 shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+        <img src="https://placehold.co/600x400/22C55E/FFFFFF?text=Project+2" alt="Project Screenshot" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-2">E-Commerce Dashboard</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+            A modern dashboard built with React and TailwindCSS to manage sales and products.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">
+              <i data-lucide="github" class="h-4 w-4 mr-1"></i> GitHub
+            </a>
+            <a href="#" class="flex items-center text-sm font-medium text-slate-600 dark:text-slate-300 hover:underline">
+              <i data-lucide="external-link" class="h-4 w-4 mr-1"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Card 3 -->
+      <div class="bg-white dark:bg-slate-800 shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+        <img src="https://placehold.co/600x400/F97316/FFFFFF?text=Project+3" alt="Project Screenshot" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h3 class="text-2xl font-bold mb-2">Markdown Note App</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">
+            A desktop app built with Electron.js for real-time Markdown note-taking.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">
+              <i data-lucide="github" class="h-4 w-4 mr-1"></i> GitHub
+            </a>
+            <a href="#" class="flex items-center text-sm font-medium text-slate-600 dark:text-slate-300 hover:underline">
+              <i data-lucide="external-link" class="h-4 w-4 mr-1"></i> Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add New Project Instruction -->
+    <div class="mt-12 text-center text-slate-500 dark:text-slate-400 text-sm">
+      👉 To add a new project, copy any of the above cards and paste it inside the <code>#projects-grid</code> div.  
+      <br>Change the image, title, description, and links as you wish.
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="border-t border-slate-200 dark:border-slate-800 py-6 mt-16 text-center text-sm text-slate-500">
+    © 2025 CODEMYST. Crafted with 💡 by Rakibul Haque.
+  </footer>
+
+  <!-- ===== SCRIPT ===== -->
+  <script>
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById("theme-toggle");
+    themeToggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      localStorage.theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+    });
+
+    // Apply saved theme
+    if (localStorage.theme === "dark") document.documentElement.classList.add("dark");
+    lucide.createIcons();
+  </script>
+</body>
+</html>

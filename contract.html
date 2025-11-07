@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CODEMYST - Contact</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide-icons"></script>
+
+  <style type="text/tailwindcss">
+    body {
+      font-family: 'Inter', sans-serif;
+      @apply bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-200 transition-colors duration-300;
+    }
+
+    .gradient-text {
+      @apply bg-gradient-to-r from-blue-600 via-purple-500 to-indigo-400 bg-clip-text text-transparent;
+    }
+
+    .card {
+      @apply bg-white dark:bg-slate-800 shadow-xl rounded-2xl p-8 transition-all duration-300 hover:shadow-2xl;
+    }
+
+    .contact-link {
+      @apply flex items-center space-x-3 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors;
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'dark-bg': '#0F172A',
+            'dark-card': '#1E293B',
+          }
+        }
+      }
+    };
+  </script>
+</head>
+
+<body class="antialiased">
+
+  <!-- ===== HEADER ===== -->
+  <header class="sticky top-0 z-50 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+      <a href="index.html" class="flex items-center">
+        <span class="text-3xl font-extrabold gradient-text">CODEMYST</span>
+      </a>
+      <button id="theme-toggle" class="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+        <i data-lucide="sun" class="h-5 w-5 hidden dark:block"></i>
+        <i data-lucide="moon" class="h-5 w-5 block dark:hidden"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="card text-center">
+      <h1 class="text-4xl font-extrabold gradient-text mb-6">Contact Information</h1>
+
+      <p class="text-slate-600 dark:text-slate-400 mb-10">
+        Get in touch with <span class="font-semibold">CODEMYST</span> or its founder directly for collaboration, queries, or partnerships.
+      </p>
+
+      <div class="space-y-6 text-left">
+        <!-- CEO -->
+        <div class="flex items-center space-x-4">
+          <i data-lucide="user" class="h-6 w-6 text-blue-600"></i>
+          <p><span class="font-semibold">CEO:</span> RAKIBUL HAQUE BHUIYAN</p>
+        </div>
+
+        <!-- Email -->
+        <a href="mailto:bitgenius00@gmail.com" class="contact-link">
+          <i data-lucide="mail" class="h-6 w-6"></i>
+          <span>Email: bitgenius00@gmail.com</span>
+        </a>
+
+        <!-- Telegram -->
+        <a href="https://t.me/code_myst" target="_blank" class="contact-link">
+          <i data-lucide="send" class="h-6 w-6"></i>
+          <span>Telegram: @code_myst</span>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/profile.php?id=61577217787621" target="_blank" class="contact-link">
+          <i data-lucide="facebook" class="h-6 w-6"></i>
+          <span>Facebook Profile</span>
+        </a>
+
+        <!-- GitHub -->
+        <a href="https://github.com/ibnmunir1" target="_blank" class="contact-link">
+          <i data-lucide="github" class="h-6 w-6"></i>
+          <span>GitHub: ibnmunir1</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-16 text-center text-sm text-slate-500 dark:text-slate-400">
+      © 2025 CODEMYST — Built with ❤️ by RAKIBUL HAQUE BHUIYAN
+    </footer>
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    // Dark mode toggle
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+  </script>
+</body>
+</html>
